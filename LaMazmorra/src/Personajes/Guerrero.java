@@ -16,6 +16,6 @@ public class Guerrero extends Personaje {
 
         @Override
         protected int dano(Personaje enemigo) {
-        return Math.max(0, this.fuerza * espada - enemigo.defensa);
+        return Math.max(0, this.fuerza + espada - enemigo.defensa);
     }
 }
