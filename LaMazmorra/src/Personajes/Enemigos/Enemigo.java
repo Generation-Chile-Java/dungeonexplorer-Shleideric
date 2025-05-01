@@ -7,10 +7,6 @@ import java.util.Random;
 public class Enemigo extends Personaje {
     private Integer arma;
 
-    public void setArma(int arma) {
-        this.arma = arma;
-    }
-
     public Enemigo(String nombre, Integer vida, Integer fuerza, Integer inteligencia, Integer defensa, Integer posicion, Integer arma) {
         super(nombre, vida, fuerza, inteligencia, defensa, posicion);
         this.arma = arma;

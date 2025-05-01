@@ -18,6 +18,11 @@ public class Mago extends Personaje {
         protected int dano(Personaje enemigo) {
         return Math.max(0, this.inteligencia + libro - enemigo.defensa);
     }
+
+        @Override
+        public int atacar(){
+            return Math.max(0, this.inteligencia + libro);
+        }
 }
 
 

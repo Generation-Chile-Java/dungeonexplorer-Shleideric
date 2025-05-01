@@ -5,16 +5,21 @@ import Personajes.Guerrero;
 import Personajes.Mago;
 import Personajes.Personaje;
 
+import java.util.Scanner;
+
 public class SystemaCombate {
     public static void Combate(Personaje jugador, Enemigo enemigo){
         System.out.println("⚔️ ¡Comienza el combate entre " + jugador.getNombre() + " y un " + enemigo.getNombre() + "! ⚔️");
 
         while (jugador.getVida() > 0 && enemigo.getVida() > 0) {
             // Turno del Guerrero
+            Scanner Turno = new Scanner(System.in);
             int player = jugador.atacar() - enemigo.getDefensa();
             if (player < 0) player = 0;
             enemigo.setVida(enemigo.getVida() - player);
             System.out.println(jugador.getNombre() + " ataca y causa " + player + " de daño. (Vida restante del enemigo: " + enemigo.getVida() + ")");
+            Turno.nextLine();
+
 
             if (enemigo.getVida() <= 0) {
                 System.out.println("💀 El " + enemigo.getNombre() + " ha sido derrotado. ¡Ganaste!");
@@ -26,6 +31,7 @@ public class SystemaCombate {
             if (danioEnemigo < 0) danioEnemigo = 0;
             jugador.setVida(jugador.getVida() - danioEnemigo);
             System.out.println("El " + enemigo.getNombre() + " ataca y causa " + danioEnemigo + " de daño. (Vida restante del " + jugador.getNombre() + ": " + jugador.getVida() + ")");
+            Turno.nextLine();
 
             if (jugador.getVida() <= 0) {
                 System.out.println("☠️ " + jugador.getNombre() + " ha sido derrotado. ¡Perdiste!");

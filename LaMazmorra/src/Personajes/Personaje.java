@@ -1,5 +1,8 @@
 package Personajes;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Personaje {
     protected String nombre;
     protected Integer vida;
@@ -7,6 +10,8 @@ public class Personaje {
     protected Integer inteligencia;
     protected Integer defensa;
     protected Integer posición = 0;
+    protected int oro = 0;
+    private Map<String, Integer> objetosValiosos = new HashMap<>();
 
     //Constructor Completo
     public Personaje(String nombre, Integer vida, Integer fuerza, Integer inteligencia, Integer defensa, Integer posicion){
@@ -32,6 +37,15 @@ public class Personaje {
 
     public void setVida(Integer vida) {
         this.vida = vida;
+    }
+
+    public void agregarOro(int cantidad){
+        this.oro += cantidad;
+    }
+
+    public void agregarValuable(String nombre, int cantidad){
+        objetosValiosos.put(nombre, objetosValiosos.getOrDefault(nombre, 0) + cantidad);
+        System.out.println("Objeto valioso agregado: " + nombre + " (Cantidad: " + cantidad + ")");
     }
 
     public void atributos(){
@@ -76,5 +90,10 @@ public class Personaje {
 
     public int atacar(){
         return this.fuerza;
+    }
+
+    public void curar(int cantidad) {
+        this.vida += cantidad;
+        System.out.println("Te curaste. Salud actual: " + this.vida);
     }
 }
